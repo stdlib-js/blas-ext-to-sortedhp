@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-11-09)
+## Unreleased (2025-11-14)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`7c208b6`](https://github.com/stdlib-js/stdlib/commit/7c208b6abfdc8f1d7910d371c03aae428605ddef) - **docs:** fix missing decimals _(by Athan Reines)_
 -   [`a9fb57e`](https://github.com/stdlib-js/stdlib/commit/a9fb57ec46973d10d247dfbe68d0b11a24970688) - **docs:** update descriptions _(by Philipp Burckhardt)_
 -   [`570bbcf`](https://github.com/stdlib-js/stdlib/commit/570bbcf40d890923d59e0a25ffb2c2a4052b9a59) - **feat:** add `blas/ext/to-sortedhp` [(#8182)](https://github.com/stdlib-js/stdlib/pull/8182) _(by Muhammad Haris, Athan Reines, stdlib-bot)_
 
