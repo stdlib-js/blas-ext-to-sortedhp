@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-03-16)
+## Unreleased (2026-04-10)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`e7b800e`](https://github.com/stdlib-js/stdlib/commit/e7b800e54e43b76dc9d3dbd2a1198501bf8df104) - **test:** address failing tests _(by Athan Reines)_
 -   [`b0892e4`](https://github.com/stdlib-js/stdlib/commit/b0892e4fb1447bdfe78a602136537369dd45fd6f) - **bench:** refactor to use string interpolation in blas/ext/to-sortedhp [(#10830)](https://github.com/stdlib-js/stdlib/pull/10830) _(by Kamal Singh Rautela)_
 
 </details>
@@ -24,8 +25,9 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   Kamal Singh Rautela
 
 </section>
