@@ -35,38 +35,32 @@ limitations under the License.
 
 > Return a new [ndarray][@stdlib/ndarray/ctor] containing the elements of an input [ndarray][@stdlib/ndarray/ctor] sorted along one or more [ndarray][@stdlib/ndarray/ctor] dimensions using heapsort.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-ext-to-sortedhp
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-toSortedhp = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-to-sortedhp@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var toSortedhp = require( 'path/to/vendor/umd/blas-ext-to-sortedhp/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-to-sortedhp@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.toSortedhp;
-})();
-</script>
+var toSortedhp = require( '@stdlib/blas-ext-to-sortedhp' );
 ```
 
 #### toSortedhp( x\[, sortOrder]\[, options] )
@@ -74,16 +68,12 @@ If no recognized module system is present, access bundle contents via the global
 Returns a new [ndarray][@stdlib/ndarray/ctor] containing the elements of an input [ndarray][@stdlib/ndarray/ctor] sorted along one or more [ndarray][@stdlib/ndarray/ctor] dimensions using heapsort.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
 var y = toSortedhp( x );
-// returns <ndarray>
-
-var arr = ndarray2array( y );
-// returns [ -3.0, -1.0, 2.0 ]
+// returns <ndarray>[ -3.0, -1.0, 2.0 ]
 ```
 
 The function has the following parameters:
@@ -100,45 +90,33 @@ The function accepts the following options:
 By default, the function sorts elements in increasing order. To sort in a different order, provide a `sortOrder` argument.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
 var y = toSortedhp( x, -1.0 );
-// returns <ndarray>
-
-var arr = ndarray2array( y );
-// returns [ 2.0, -1.0, -3.0 ]
+// returns <ndarray>[ 2.0, -1.0, -3.0 ]
 ```
 
 In addition to numeric values, one can specify the sort order via one of the following string literals: `'ascending'`, `'asc'`, `'descending'`, or `'desc'`. The first two literals indicate to sort in ascending (i.e., increasing) order. The last two literals indicate to sort in descending (i.e., decreasing) order.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
 
 // Sort in ascending order:
 var y = toSortedhp( x, 'asc' );
-// returns <ndarray>
-
-var arr = ndarray2array( y );
-// returns [ -3.0, -1.0, 2.0 ]
+// returns <ndarray>[ -3.0, -1.0, 2.0 ]
 
 // Sort in descending order:
 y = toSortedhp( x, 'descending' );
-// returns <ndarray>
-
-arr = ndarray2array( y );
-// returns [ 2.0, -1.0, -3.0 ]
+// returns <ndarray>[ 2.0, -1.0, -3.0 ]
 ```
 
 By default, the function performs the operation over all elements in a provided input [ndarray][@stdlib/ndarray/ctor]. To perform the operation over specific dimensions, provide a `dims` option.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0, 4.0 ], {
@@ -146,22 +124,15 @@ var x = array( [ -1.0, 2.0, -3.0, 4.0 ], {
     'order': 'row-major'
 });
 
-var v = ndarray2array( x );
-// returns [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ]
-
 var y = toSortedhp( x, {
     'dims': [ 0 ]
 });
-// returns <ndarray>
-
-v = ndarray2array( y );
-// returns [ [ -3.0, 2.0 ], [ -1.0, 4.0 ] ]
+// returns <ndarray>[ [ -3.0, 2.0 ], [ -1.0, 4.0 ] ]
 ```
 
 To specify the output [ndarray][@stdlib/ndarray/ctor] [data type][@stdlib/ndarray/dtypes], provide a `dtype` option.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ -1.0, 2.0, -3.0 ] );
@@ -169,10 +140,7 @@ var x = array( [ -1.0, 2.0, -3.0 ] );
 var y = toSortedhp( x, {
     'dtype': 'float32'
 });
-// returns <ndarray>
-
-var arr = ndarray2array( y );
-// returns [ -3.0, -1.0, 2.0 ]
+// returns <ndarray>[ -3.0, -1.0, 2.0 ]
 ```
 
 #### toSortedhp.assign( x, out\[, sortOrder]\[, options] )
@@ -180,7 +148,6 @@ var arr = ndarray2array( y );
 Sorts the elements of an input [ndarray][@stdlib/ndarray/ctor] along one or more [ndarray][@stdlib/ndarray/ctor] dimensions using heapsort and assigns the results to an output [ndarray][@stdlib/ndarray/ctor].
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var zeros = require( '@stdlib/ndarray-zeros' );
 var array = require( '@stdlib/ndarray-array' );
 
@@ -188,10 +155,7 @@ var x = array( [ -1.0, 2.0, -3.0 ] );
 var y = zeros( [ 3 ] );
 
 var out = toSortedhp.assign( x, y );
-// returns <ndarray>
-
-var arr = ndarray2array( out );
-// returns [ -3.0, -1.0, 2.0 ]
+// returns <ndarray>[ -3.0, -1.0, 2.0 ]
 
 var bool = ( y === out );
 // returns true
@@ -233,16 +197,11 @@ The function accepts the following options:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-to-sortedhp@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var ndarray = require( '@stdlib/ndarray-ctor' );
+var toSortedhp = require( '@stdlib/blas-ext-to-sortedhp' );
 
 // Generate an array of random numbers:
 var xbuf = discreteUniform( 25, -20, 20, {
@@ -260,11 +219,6 @@ var out = toSortedhp( x, {
 
 // Print the results:
 console.log( ndarray2array( out ) );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -351,11 +305,11 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/blas-ext-to-sortedhp/main/LICENSE
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/umd
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/umd
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/umd
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
 </section>
 
