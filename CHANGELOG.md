@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-05-22)
+## Unreleased (2026-06-04)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`ec68ca7`](https://github.com/stdlib-js/stdlib/commit/ec68ca7cc35210db29a028d561ec71968e2ff753) - **docs:** fix TSDoc errors in `blas` declarations [(#12529)](https://github.com/stdlib-js/stdlib/pull/12529) _(by Philipp Burckhardt, Athan Reines)_
 -   [`3bd0331`](https://github.com/stdlib-js/stdlib/commit/3bd03310a8738bf090c10603059d20f069e8703d) - **test:** fix assertions and descriptions _(by Athan Reines)_
 -   [`12d495c`](https://github.com/stdlib-js/stdlib/commit/12d495c163461b9d3141e9ad84047b1f5910f966) - **docs:** improve doctests for ndarray instances in `blas/ext/to-sortedhp` [(#11479)](https://github.com/stdlib-js/stdlib/pull/11479) _(by Uday Kakade)_
 -   [`e7b800e`](https://github.com/stdlib-js/stdlib/commit/e7b800e54e43b76dc9d3dbd2a1198501bf8df104) - **test:** address failing tests _(by Athan Reines)_
@@ -27,10 +28,11 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
 -   Kamal Singh Rautela
+-   Philipp Burckhardt
 -   Uday Kakade
 
 </section>
